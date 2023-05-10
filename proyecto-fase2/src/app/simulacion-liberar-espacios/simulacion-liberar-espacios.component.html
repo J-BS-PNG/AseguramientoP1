@@ -1,0 +1,27 @@
+
+<h1>Simulación día y hora</h1>
+<form (submit)="onSimularDiaHora(postForm)" #postForm="ngForm">
+    <mat-grid-list  #grid [cols]="cols" rowHeight="6:1" gutterSize="20px">
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="fill">
+                <mat-label>Escoja una fecha</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="fechaS" [ngModelOptions]="{standalone: true}" [min]="minDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <p class="titulo_hora_entrada">Hora del día</p>
+            <ngb-timepicker [(ngModel)]="tiempo_entrada" [meridian]="meridian" name="hora_entrada"></ngb-timepicker>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button 
+            mat-raised-button 
+            color="primary"
+            type="submit">Simular día y hora</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

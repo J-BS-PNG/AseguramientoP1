@@ -1,0 +1,63 @@
+<h1>Reservar espacio vehículo oficial</h1>
+<form (submit)="onReservarEspacio(postForm)" #postForm="ngForm">
+    <mat-grid-list  #grid [cols]="cols" rowHeight="6:1" gutterSize="20px">
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Identificación del chofer</mat-label>
+                <input matInput  
+                type="text" 
+                name="identificacion"
+                required
+                ngModel
+                #identificacion="ngModel">
+                <mat-error *ngIf="identificacion.invalid">Por favor ingrese la identificación del chofer</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Placa del vehículo</mat-label>
+                <input matInput  
+                type="text" 
+                name="placa"
+                required
+                ngModel
+                #placa="ngModel">
+                <mat-error *ngIf="placa.invalid">Por favor ingrese la placa del vehículo</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Modelo del vehículo</mat-label>
+                <input matInput  
+                type="text" 
+                name="modelo"
+                required
+                ngModel
+                #modelo="ngModel">
+                <mat-error *ngIf="modelo.invalid">Por favor ingrese el modelo del vehículo</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Color del vehículo</mat-label>
+                <input matInput  
+                type="text" 
+                name="color"
+                required
+                ngModel
+                #color="ngModel">
+                <mat-error *ngIf="color.invalid">Por favor ingrese el color del vehículo</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <p class="titulo_hora_entrada">Hora de entrada</p>
+            <ngb-timepicker [(ngModel)]="tiempo_entrada" [meridian]="meridian" name="hora_entrada"></ngb-timepicker>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button 
+            mat-raised-button 
+            color="primary"
+            type="submit">Reservar espacio</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
